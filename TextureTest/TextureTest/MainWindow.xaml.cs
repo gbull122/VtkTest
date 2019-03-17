@@ -36,11 +36,8 @@ namespace TextureTest
             vtkDelaunay2D delaunay =vtkDelaunay2D.New();
             delaunay.SetInput(polydata);
             delaunay.Update();
-            //vtkPolyDataMapper mapper =vtkPolyDataMapper.New();
-            //mapper.SetInputConnection(delaunay.GetOutputPort());
             
             vtkPlaneSource plane = vtkPlaneSource.New();
-            //plane.AddInput(delaunay.GetOutput());
             
             //Read the image data from a file
             vtkJPEGReader reader = vtkJPEGReader.New();
@@ -58,8 +55,6 @@ namespace TextureTest
             //Create mapper and set the mapped texture as input
             vtkPolyDataMapper mapper = vtkPolyDataMapper.New();
             mapper.SetInputConnection(map_to_plane.GetOutputPort());
-            
-            
 
             //Create actor and set the mapper and the texture
             vtkActor actor = vtkActor.New();
